@@ -8,7 +8,7 @@ function setup() {
 
 function draw() {
   // Set the brush color to black
-  fill(random(255),random(255),random(255));
+  fill(random(255),random(255),random(255), random(200));
   noStroke();
   brushSizeX = 10+random(20);
   // brushSizeY = 10+random(20);
@@ -21,16 +21,16 @@ function draw() {
   // Draw a circle at the mouse position to reveal the text
   if (mouseIsPressed) {
     ellipse(mouseX, mouseY, brushSizeX, brushSizeX*3);
-      if (frameCount % 4 < 1) {
+      // if (frameCount % 4 < 1) {
         push();
         textSize(random(200));
         textFont('Helvetica');
-        // textAlign(CENTER, CENTER);
+        textAlign(CENTER, CENTER);
         stroke(0);
         strokeWeight(3);
         fill(255);
         text("obsolete", random(width), random(height));
         pop();
-    }
+    // }
   }
 }
