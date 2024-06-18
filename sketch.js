@@ -1,3 +1,21 @@
+
+let colorPalette = [
+  // '#000000', // Black
+  '#FFFFFF', // White
+  '#FF5733', // Red
+  '#33FF57', // Green
+  '#3357FF', // Blue
+  '#F0F033', // Yellow
+  // '#33F0FF', // Cyan
+  // '#F033FF', // Magenta
+  // '#FF33F0', // Pink
+  // '#33FFD5', // Turquoise
+  // '#D5FF33', // Lime
+  // '#FF8C33', // Orange
+  // '#8C33FF', // Purple
+  // '#33FF8C'  // Mint
+];
+
 let brushSizeX = 10;
 let brushSizeY = 30
 function setup() {
@@ -8,9 +26,9 @@ function setup() {
 
 function draw() {
   // Set the brush color to black
-  fill(random(255),random(255),random(255), random(200));
+  fill(random(255),random(255),random(255), 200);
   noStroke();
-  brushSizeX = 10+random(20);
+  brushSizeX = 30+random(20);
   // brushSizeY = 10+random(20);
   // brushSizeX = 20;
   // brushSizeY = 50;
@@ -23,12 +41,14 @@ function draw() {
     ellipse(mouseX, mouseY, brushSizeX, brushSizeX*3);
       // if (frameCount % 4 < 1) {
         push();
-        textSize(random(200));
+        textSize(random(250));
         textFont('Helvetica');
         textAlign(CENTER, CENTER);
+        // noStroke();
         stroke(0);
         strokeWeight(3);
-        fill(255);
+        // fill(random(255),random(255),random(255));
+        fill(random(colorPalette));
         text("obsolete", random(width), random(height));
         pop();
     // }
