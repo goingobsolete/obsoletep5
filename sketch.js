@@ -7,8 +7,7 @@ let noiseOffsetR = 0;
 let noiseOffsetG = 10000; // Start at different offsets for each color
 let noiseOffsetB = 20000; // to ensure they vary independently
 
-function
-preload() {
+function preload() {
   myFont = loadFont('assets/IBMPlexSans-Bold.ttf');
 }
 
