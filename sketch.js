@@ -44,7 +44,7 @@ function draw() {
   if (mouseIsPressed) {
     push();
         // ellipse(mouseX, mouseY, brushSizeX*6, brushSizeX*3);
-        textSize(150+random(5));
+        textSize(150+random(20));
         textFont('HELVETICA');
         textAlign(CENTER, CENTER);
         noStroke
