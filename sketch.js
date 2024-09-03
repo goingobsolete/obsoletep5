@@ -1,22 +1,42 @@
+// <div id="sketch-holder"></div>
+
+// <script>
+
+
 let goFont;
 let goFill;
-let goSize;
 let goRatio;
 
 let obFont;
+let obFill
+let obRatioLow;
+let obRatioHigh;
 
+let targetDiv;
+let targetDivWidth;
+let heightRatio;
 
 
 
 function preload() {
   // goFont = loadFont('assets/IBMPlexSans-Bold.ttf');
-  goFont = 'HELVETICA'
-  obFont = goFont
+  goFont = 'HELVETICA';
+  obFont = goFont;
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(0);
+
+  // targetDiv = document.querySelector('.MuiStack-root.css-7e7wz2');
+  // targetDivWidth = targetDiv.offsetWidth;
+  heightRatio = 0.565; // 16x9
+
+  goRatio = (1/5);
+  obRatioLow = (1/35);
+  obRatioHigh = (1/17);
+
+  // createCanvas(headerWidth, windowHeight*.98);
+  createCanvas(windowWidth,windowHeight);
+  background(255);
 }
 
 function draw() {
@@ -33,11 +53,11 @@ function draw() {
 
   if (mouseIsPressed) {
         push();
-        textSize(300);
+        textSize(width*goRatio);
         textFont(goFont);
         textAlign(CENTER, CENTER);
-        stroke(255);
-        strokeWeight(random(3));
+        stroke(random(255,255));
+        strokeWeight(1);
         fill(goFill.r, goFill.g, goFill.b, goFill.o);
         //snag the colors from riso**** every lift switched colors
         // fill(r,g,b);
@@ -45,19 +65,18 @@ function draw() {
 
         translate(mouseX, mouseY, 6);
         // rotate(radians(frameCount*-1));
-        text("GOING", 0, 0,0);
+        text("gøing", 0, 0,0);
         pop();
 
-      // if (frameCount % 4 < 1) {
+      
         push();
-        textSize(random(150));
+        textSize(random((width*obRatioLow),(width*obRatioHigh)));
         textFont(obFont);
         textAlign(CENTER, CENTER);
-        stroke(0);
-        strokeWeight(3);
-        fill(255,255,255,random(215,216));
-        text("obsolete", random(width), random(height));
+        stroke(goFill.r,goFill.g,goFill.b);
+        strokeWeight(0.5);
+        fill(255,255,255,random(255));
+        text("OBSOLETE", random(width), random(height));
         pop();
-    // }
   }
 }
