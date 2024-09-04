@@ -12,8 +12,8 @@ let obFill
 let obRatioLow;
 let obRatioHigh;
 
-let targetDiv;
-let targetDivWidth;
+// let targetDiv;
+// let targetDivWidth;
 let heightRatio;
 
 
@@ -30,12 +30,12 @@ function setup() {
   // targetDivWidth = targetDiv.offsetWidth;
   heightRatio = 0.565; // 16x9
 
-  goRatio = (1/5);
+  goRatio = (1/8);
   obRatioLow = (1/35);
   obRatioHigh = (1/17);
 
   // createCanvas(headerWidth, windowHeight*.98);
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(windowWidth,(windowWidth)*heightRatio);
   background(255);
 }
 
@@ -53,7 +53,7 @@ function draw() {
 
   if (mouseIsPressed) {
         push();
-        textSize(width*goRatio);
+        textSize((Math.sqrt(width*height))*goRatio);
         textFont(goFont);
         textAlign(CENTER, CENTER);
         stroke(random(255,255));
@@ -64,17 +64,18 @@ function draw() {
         
 
         translate(mouseX, mouseY, 6);
-        // rotate(radians(frameCount*-1));
+        rotate(radians((frameCount*-1)));
         text("gøing", 0, 0,0);
         pop();
 
       
         push();
-        textSize(random((width*obRatioLow),(width*obRatioHigh)));
+        let obTextSize = random(width * obRatioLow, width * obRatioHigh);
+        textSize(obTextSize);
         textFont(obFont);
         textAlign(CENTER, CENTER);
         stroke(goFill.r,goFill.g,goFill.b);
-        strokeWeight(0.5);
+        strokeWeight(obTextSize*.003);
         fill(255,255,255,random(255));
         text("OBSOLETE", random(width), random(height));
         pop();
